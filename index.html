@@ -1,198 +1,255 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Rasuli Learning Lab</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>JavaScript Assignment 5</title>
+
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="task1.js"></script>
-    <script defer src="task2.js"></script>
-    <script defer src="task3.js"></script>
+
+    <script src="task1.js" defer></script>
+    <script src="task2.js" defer></script>
+    <script src="task3.js" defer></script>
   </head>
+
   <body>
     <header>
-      <b>R / LEARNING LAB</b>
-      <nav>
-        <a href="#game">Play</a><a href="#board">Plan</a
-        ><a href="#creator">Create</a>
+      <b>ASSIGNMENT 5</b>
+
+      <nav aria-label="Main navigation">
+        <a href="#game">Task 1</a>
+        <a href="#board">Task 2</a>
+        <a href="#creator">Task 3</a>
       </nav>
     </header>
+
     <main>
       <section class="hero">
-        <small>CODINGWITHRASULI / JAVASCRIPT BASICS</small>
-        <h1>Small interactions.<br />Real possibilities.</h1>
+        <small>WEB TECHNOLOGIES / JAVASCRIPT BASICS</small>
+
+        <h1>DOM Manipulation<br />and Events</h1>
+
         <p>
-          Test your instinct. Organize your learning. Create your next hero.
-        </p>
-        <p>
-          01 / Conditions &nbsp; 02 / Data and DOM &nbsp; 03 / Live validation
+          Three practical tasks demonstrating JavaScript conditions, DOM
+          manipulation and form validation.
         </p>
       </section>
+
+      <!-- TASK 1 -->
       <section id="game" class="panel">
-        <small>01 / BROWSER GAME</small>
-        <h2>Higher or lower?</h2>
+        <small>TASK 1 / OPTION A</small>
+        <h2>Higher or Lower</h2>
+
         <p>
           Guess the next score from 1 to 100. Equal scores count as correct.
         </p>
+
         <div class="game-grid">
           <div class="number">
-            <span>Current score</span><strong id="score"></strong>
+            <span>Current score</span>
+            <strong id="score"></strong>
           </div>
+
           <div>
             <p id="stats"></p>
             <p id="game-message" role="status"></p>
-            <button id="higher">Higher ↑</button>
-            <button id="lower">Lower ↓</button>
-            <button id="restart" class="secondary">Restart</button>
+
+            <button id="higher" type="button">Higher ↑</button>
+            <button id="lower" type="button">Lower ↓</button>
+
+            <button id="restart" type="button" class="secondary">
+              Restart
+            </button>
           </div>
         </div>
       </section>
+
+      <!-- TASK 2 -->
       <section id="board" class="panel">
-        <small>02 / DATA DRIVEN PAGE</small>
-        <h2>Your study workspace</h2>
+        <small>TASK 2 / OPTION A</small>
+        <h2>Study Kanban Board</h2>
+
         <p>In progress holds at most three cards. Move one out to make room.</p>
+
         <div class="controls">
-          <label
-            >Search<input
-              id="search"
-              type="search"
-              placeholder="Find a task" /></label
-          ><label
-            >Topic<select id="filter">
+          <label>
+            Search
+            <input id="search" type="search" placeholder="Find a task" />
+          </label>
+
+          <label>
+            Topic
+            <select id="filter">
               <option value="all">All topics</option>
               <option>HTML</option>
               <option>CSS</option>
               <option>JS</option>
-            </select></label
-          ><label
-            >Priority<select id="sort">
+            </select>
+          </label>
+
+          <label>
+            Priority
+            <select id="sort">
               <option value="asc">High first</option>
               <option value="desc">Low first</option>
-            </select></label
-          >
+            </select>
+          </label>
         </div>
+
         <p id="board-message" role="status"></p>
-        <label id="progress-label" for="progress"></label
-        ><progress id="progress" max="100" value="0"></progress>
+
+        <label id="progress-label" for="progress"></label>
+        <progress id="progress" max="100" value="0"></progress>
+
+        <!-- JavaScript creates all columns and cards here. -->
         <div id="items" class="board"></div>
       </section>
+
+      <!-- TASK 3 -->
       <section id="creator" class="panel">
-        <small>03 / LIVE VALIDATION</small>
-        <h2>Create your learning hero</h2>
+        <small>TASK 3 / OPTION B</small>
+        <h2>Character Creator</h2>
+
         <p>
           Use exactly 20 points, with 1–10 per skill. Mage needs magic ≥5,
-          warrior strength ≥5, rogue agility ≥5. Admin, Hero and Rasuli are
+          warrior strength ≥5, and rogue agility ≥5. Admin, Hero and Rasuli are
           taken.
         </p>
+
         <div class="creator-grid">
           <form id="form">
             <p id="summary" role="alert"></p>
+
             <div class="fields">
               <div>
-                <label for="name">Character name</label
-                ><input
-                  name="name"
+                <label for="name">Character name</label>
+
+                <input
                   id="name"
-                  aria-describedby="name-error"
+                  name="name"
                   required
                   minlength="3"
                   maxlength="20"
                   pattern="[A-Za-z][A-Za-z0-9 ]*"
+                  aria-describedby="name-error"
                 />
-                <p class="error" id="name-error"></p>
+
+                <p id="name-error" class="error"></p>
               </div>
+
               <div>
-                <label for="class">Class</label
-                ><select
-                  name="class"
+                <label for="class">Class</label>
+
+                <select
                   id="class"
-                  aria-describedby="class-error"
+                  name="class"
                   required
+                  aria-describedby="class-error"
                 >
                   <option value="mage">Mage</option>
                   <option value="warrior">Warrior</option>
                   <option value="rogue">Rogue</option>
                 </select>
-                <p class="error" id="class-error"></p>
+
+                <p id="class-error" class="error"></p>
               </div>
+
               <div>
-                <label for="color">Color</label
-                ><select
-                  name="color"
+                <label for="color">Color</label>
+
+                <select
                   id="color"
-                  aria-describedby="color-error"
+                  name="color"
                   required
+                  aria-describedby="color-error"
                 >
                   <option value="violet">Violet</option>
                   <option value="teal">Teal</option>
                   <option value="amber">Amber</option>
                 </select>
-                <p class="error" id="color-error"></p>
+
+                <p id="color-error" class="error"></p>
               </div>
+
               <div>
-                <label for="strength">Strength</label
-                ><input
-                  name="strength"
+                <label for="strength">Strength</label>
+
+                <input
                   id="strength"
+                  name="strength"
+                  type="number"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value="5"
+                  required
                   aria-describedby="strength-error"
-                  type="number"
-                  min="1"
-                  max="10"
-                  step="1"
-                  required
-                  value="5"
                 />
-                <p class="error" id="strength-error"></p>
+
+                <p id="strength-error" class="error"></p>
               </div>
+
               <div>
-                <label for="magic">Magic</label
-                ><input
-                  name="magic"
+                <label for="magic">Magic</label>
+
+                <input
                   id="magic"
+                  name="magic"
+                  type="number"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value="5"
+                  required
                   aria-describedby="magic-error"
-                  type="number"
-                  min="1"
-                  max="10"
-                  step="1"
-                  required
-                  value="5"
                 />
-                <p class="error" id="magic-error"></p>
+
+                <p id="magic-error" class="error"></p>
               </div>
+
               <div>
-                <label for="agility">Agility</label
-                ><input
-                  name="agility"
+                <label for="agility">Agility</label>
+
+                <input
                   id="agility"
+                  name="agility"
+                  type="number"
+                  min="1"
+                  max="10"
+                  step="1"
+                  value="5"
+                  required
                   aria-describedby="agility-error"
-                  type="number"
-                  min="1"
-                  max="10"
-                  step="1"
-                  required
-                  value="5"
                 />
-                <p class="error" id="agility-error"></p>
+
+                <p id="agility-error" class="error"></p>
               </div>
+
               <div>
-                <label for="wisdom">Wisdom</label
-                ><input
-                  name="wisdom"
+                <label for="wisdom">Wisdom</label>
+
+                <input
                   id="wisdom"
-                  aria-describedby="wisdom-error"
+                  name="wisdom"
                   type="number"
                   min="1"
                   max="10"
                   step="1"
-                  required
                   value="5"
+                  required
+                  aria-describedby="wisdom-error"
                 />
-                <p class="error" id="wisdom-error"></p>
+
+                <p id="wisdom-error" class="error"></p>
               </div>
             </div>
+
             <p id="points" role="status"></p>
+
             <button type="submit">Create character</button>
           </form>
+
           <aside>
             <small>LIVE PREVIEW</small>
             <div id="preview"></div>
@@ -201,6 +258,7 @@
         </div>
       </section>
     </main>
+
     <footer>Alireza Rasuli / Assignment 5 / HTML · CSS · JavaScript</footer>
   </body>
 </html>
